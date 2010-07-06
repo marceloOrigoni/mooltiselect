@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<link href="./style.css" type="text/css" rel="stylesheet" />		
+		<script type="text/javascript" src="./mootools-1.2.4-core.js.js"></script>
+		<script type="text/javascript" src="./mootools-1.2.4.4-more.js"></script>
+		<script type="text/javascript" src="./mooltiselect.js"></script>
+		<script type="text/javascript">
+			
+			window.addEvent('domready', function(){
+				var list1 = new Combo();
+				var list2 = new Combo({
+					list: 'list2',
+					selectedClass: 'selectedRed',
+					name: 'listBox2',
+					sort: true
+				});
+				list1.apply();
+				list2.apply();
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div id="list" class="list">
+				<div class="heading">This is not Selectable</div>
+				<div class="option" rel="1">Option 1</div>
+				<div class="option" rel="2">Option 2</div>
+				<div class="option" rel="3">Option 3</div>
+				<div class="option" rel="4">Option 4</div>
+				<div class="option" rel="5">Option 5</div>
+			</div>
+			<div id="list2" class="list">
+				<div class="heading">This is not Selectable nor Sortable</div>
+				<div class="option" rel="1">Option 1</div>
+				<div class="option" rel="2">Option 2</div>
+				<div class="option" rel="3">Option 3</div>
+				<div class="option" rel="4">Option 4</div>
+				<div class="option" rel="5">Option 5</div>
+			</div>			
+		</div>	
+	</body>
+</html>

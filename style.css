@@ -1,0 +1,29 @@
+.wrapper{
+	margin: 0px auto 0px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	width: 650px;
+}
+
+.list{
+	float: left;
+	border: 1px solid #000;
+	width: 300px;
+	margin: 10px;
+}
+
+.option{
+	float: left;
+	border: 1px solid #0000ff;
+	width: 300px;
+	}
+
+.selectedRed{
+	border: 1px solid #ff0000;
+	}
+
+.selected{
+	border: 1px solid #008000;
+	}
+	
+
