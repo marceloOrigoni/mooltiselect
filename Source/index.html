@@ -18,8 +18,15 @@
 					sort: true,
 					maximum: 2
 				});
+				var list3 = new mooltiselect({
+					maximum: 3,
+					sort: true,
+					list: 'liList',
+					options: 'ulOption'
+				});				
 				list1.apply();
 				list2.apply();
+				list3.apply();
 			});
 			
 		</script>
@@ -41,7 +48,14 @@
 				<div class="option" rel="3">Option 3</div>
 				<div class="option" rel="4">Option 4</div>
 				<div class="option" rel="5">Option 5</div>
-			</div>			
+			</div>
+			<ul id="liList" class="list">
+				<li class="ulOption" rel="1">ul 1</li>
+				<li class="ulOption" rel="2">ul 2</li>
+				<li class="ulOption" rel="3">ul 3</li>
+				<li class="ulOption" rel="4">ul 4</li>
+				<li class="ulOption" rel="5">ul 5</li>
+			</ul>
 		</div>	
 	</body>
 </html>
