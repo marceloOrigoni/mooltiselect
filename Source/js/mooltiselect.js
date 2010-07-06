@@ -9,8 +9,9 @@ license: MIT-style
 authors:
 - Marcelo Origoni
 
-requires:   core/1.2.1:   '*'
-			more/Drag/Sortables
+requires:   
+	- core/1.2.1:   '*'
+	- more/Drag/Sortables
 
 provides:
   - mooltiselect
