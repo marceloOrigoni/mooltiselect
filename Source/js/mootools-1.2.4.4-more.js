@@ -1,3 +1,25 @@
+/*
+---
+description:     
+  - mooltisetec allow you to create a multiselect combobox from any html tag, also allows you to make it sortable or set a maximum of options.
+
+authors:
+  - Marcelo Origoni
+
+version:
+  - 1.1.4
+
+license:
+  - MIT-style license
+
+requires:
+  - core/1.2.1:   '*'
+  - more/Drag:    'Sortables'
+  
+provides:
+  - mooltiselect
+...
+*/
 //MooTools More, <http://mootools.net/more>. Copyright (c) 2006-2009 Aaron Newton <http://clientcide.com/>, Valerio Proietti <http://mad4milk.net> & the MooTools team <http://mootools.net/developers>, MIT Style License.
 
 MooTools.More={version:"1.2.4.4",build:"6f6057dc645fdb7547689183b2311063bd653ddf"};var Drag=new Class({Implements:[Events,Options],options:{snap:6,unit:"px",grid:false,style:true,limit:false,handle:false,invert:false,preventDefault:false,stopPropagation:false,modifiers:{x:"left",y:"top"}},initialize:function(){var b=Array.link(arguments,{options:Object.type,element:$defined});
