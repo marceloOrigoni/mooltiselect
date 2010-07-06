@@ -19,11 +19,15 @@
 	}
 
 .selectedRed{
-	border: 1px solid #ff0000;
+	background: #f00;
+	color: #fff;
+	font-weight: bold;
 	}
 
 .selected{
-	border: 1px solid #008000;
+	background: #008;
+	color: #fff;
+	font-weight: bold;
 	}
 	
 
