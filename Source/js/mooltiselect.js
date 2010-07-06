@@ -12,9 +12,8 @@ authors:
 requires:   core/1.2.1:   '*'
 			more/Drag/Sortables
 
-provides: 	
-	-mooltiselect
-
+provides:
+  - mooltiselect
 ...
 */
 
