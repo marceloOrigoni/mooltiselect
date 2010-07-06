@@ -1,17 +1,21 @@
 /*
 ---
-description:	
-	- mooltisetec allow you to create a multiselect combobox from any html tag, also allows you to make it sortable or set a maximum of options.
-
-license: MIT-style
+description:     
+  - mooltisetec allow you to create a multiselect combobox from any html tag, also allows you to make it sortable or set a maximum of options.
 
 authors:
-- Marcelo Origoni
+  - Marcelo Origoni
 
-requires:   
-	- core/1.2.1:   '*'
-	- more/Drag/Sortables
+version:
+  - 1.1.4
 
+license:
+  - MIT-style license
+
+requires:
+  - core/1.2.1:   '*'
+  - more/Drag:    'Sortables'
+  
 provides:
   - mooltiselect
 ...
