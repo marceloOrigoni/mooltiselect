@@ -2,6 +2,6 @@ name: Mooltiselect
 author: marcelo.origoni
 category: Forms
 tags: [forms, multiselect, sortable]
-#docs: http://marcelo.origoni.com.ar/mooltiSelect/
-#demo: http://marcelo.origoni.com.ar/mooltiSelect/demo.php
-#current: 1.1.6
+docs: http://marcelo.origoni.com.ar/mooltiSelect/
+demo: http://marcelo.origoni.com.ar/mooltiSelect/demo.php
+current: 1.2

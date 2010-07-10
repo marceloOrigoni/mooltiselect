@@ -29,14 +29,15 @@ var mooltiselect = new Class({
 		selectedClass: 'selected',
 		name: 'listBox',
 		sort: false,
-		maximum: 0
+		maximum: 0,
+		errorMessage: 'You already selected the maximum of %MAX% items'
 	},
 	initialize: function(options) {
 		this.setOptions(options);
 	},
 	apply: function(properties){
 		
-		var list, sort, maximum, options, name, selected;
+		var list, sort, maximum, options, name, selected,errorMessage;
 		
 		if(properties){ 
 			list = properties.list ? properties.list : this.options.list;
@@ -45,14 +46,18 @@ var mooltiselect = new Class({
 			options = '.' + properties.options ? properties.options : this.options.options;
 			name = properties.name ? properties.name + '[]': this.options.name + '[]';
 			selected = properties.selectedClass ? properties.selectedClass : this.options.selectedClass;
+			errorMessage = properties.errorMessage ? properties.errorMessage : this.options.errorMessage;
 		}else{
 			list = this.options.list;
 			sort = this.options.sort;
 			maximum = this.options.maximum;
 			options = '.' + this.options.options;
 			name = this.options.name + '[]';
-			selected = this.options.selectedClass;			
+			selected = this.options.selectedClass;
+			errorMessage = this.options.errorMessage;	
 		}
+		
+		errorMessage = errorMessage.replace("%MAX%", maximum);
 		
 		if(sort){
 			var sortList = new Element('div', {
@@ -77,7 +82,7 @@ var mooltiselect = new Class({
 								'type': 'hidden'
 								}));
 							}else{
-								alert('You already selected the maximum of ' + $(el).getProperty('max') + ' items');
+								alert(errorMessage);
 							}
 						}
 					});
@@ -108,7 +113,7 @@ var mooltiselect = new Class({
 								'type': 'hidden'
 								}));
 							}else{
-								alert('You already selected the maximum of ' + $(el).getProperty('max') + ' items');
+								alert(errorMessage);
 							}
 						}
 					});

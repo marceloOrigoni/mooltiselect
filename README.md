@@ -5,11 +5,11 @@ mooltiselect
 	and also to make it sortable or set a maximum of options
 	That the user may select.
 	  
-	![Screenshot](http://marcelo.origoni.com.ar/images/mooltiselect.png)
+![Screenshot](http://marcelo.origoni.com.ar/images/mooltiselect.png)
 	  
 How to use
 ----------
-
+	
 	1.	Create the element list, that will become the mooltiselect. 
 		<ul id="ulList">
 			<li class="liOption" rel="1">Option 1</li>
@@ -26,9 +26,15 @@ How to use
 			selectedClass: 'liSelected', // selected class, to be applied to selected items.
 			name: 'liSelected Options', // name of the form element, that will be send, using POST/GET method 
 			sort: false, // boolean, true allows sorting of the option elements, and is sent via POST/GET in order, firts the top one, end descending.
-			maximum: 0	// int, maximum selectable options, 0 means no limit.	
+			maximum: 0,	// int, maximum selectable options, 0 means no limit.	
+			errorMessage: 'You already selected the maximum of %MAX% items', // Error message displayed if max options already selected, the %MAX% wilcard, will be replaced with the number 
 			});
 	
 	3. Apply the change.
 		#JS
 		list.apply();
+
+Changelog
+---------
+
+	1.2 Added custom error message alert
