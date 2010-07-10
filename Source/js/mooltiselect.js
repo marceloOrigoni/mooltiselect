@@ -68,7 +68,7 @@ var mooltiselect = new Class({
 						$(el).getFirst('input').destroy();
 					}else{
 						var selItems = $(this).getParent().getChildren('.' + $(el).getProperty('sel')).length;
-						if(selItems < $(el).getProperty('max') && $(el).getProperty('max') > 0){
+						if(selItems < $(el).getProperty('max') && $(el).getProperty('max') != 0){
 							$(el).addClass($(el).getProperty('sel'));
 							$(el).adopt(new Element('input', {
 								'name': $(el).getProperty('name'),
@@ -99,7 +99,7 @@ var mooltiselect = new Class({
 						$(el).getFirst('input').destroy();
 					}else{
 						var selItems = $(this).getParent().getChildren('.' + $(el).getProperty('sel')).length;
-						if(selItems < $(el).getProperty('max') && $(el).getProperty('max') > 0){						
+						if(selItems < $(el).getProperty('max') && $(el).getProperty('max') != 0){						
 							$(el).addClass($(el).getProperty('sel'));
 							$(el).adopt(new Element('input', {
 								'name': $(el).getProperty('name'),

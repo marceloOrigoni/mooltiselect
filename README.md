@@ -5,6 +5,8 @@ mooltiselect
 	and also to make it sortable or set a maximum of options
 	That the user may select.
 	  
+	![Screenshot](http://marcelo.origoni.com.ar/images/mooltiselect.png)
+	  
 How to use
 ----------
 
