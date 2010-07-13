@@ -7,7 +7,7 @@ authors:
   - Marcelo Origoni
 
 version:
-  - 1.1.4
+  - 1.3
 
 license:
   - MIT-style license
@@ -29,15 +29,16 @@ var mooltiselect = new Class({
 		selectedClass: 'selected',
 		name: 'listBox',
 		sort: false,
+		drag: true,
 		maximum: 0,
-		errorMessage: 'You already selected the maximum of %MAX% items'
+		errorMessage: 'You already selected the maximum of %MAX% items'		
 	},
 	initialize: function(options) {
 		this.setOptions(options);
 	},
 	apply: function(properties){
 		
-		var list, sort, maximum, options, name, selected,errorMessage;
+		var list, sort, maximum, options, name, selected,errorMessage, drag, dragging;
 		
 		if(properties){ 
 			list = properties.list ? properties.list : this.options.list;
@@ -47,6 +48,7 @@ var mooltiselect = new Class({
 			name = properties.name ? properties.name + '[]': this.options.name + '[]';
 			selected = properties.selectedClass ? properties.selectedClass : this.options.selectedClass;
 			errorMessage = properties.errorMessage ? properties.errorMessage : this.options.errorMessage;
+			drag = properties.drag ? properties.drag : this.options.drag;
 		}else{
 			list = this.options.list;
 			sort = this.options.sort;
@@ -54,7 +56,8 @@ var mooltiselect = new Class({
 			options = '.' + this.options.options;
 			name = this.options.name + '[]';
 			selected = this.options.selectedClass;
-			errorMessage = this.options.errorMessage;	
+			errorMessage = this.options.errorMessage;
+			drag = this.options.drag;
 		}
 		
 		errorMessage = errorMessage.replace("%MAX%", maximum);
@@ -73,7 +76,7 @@ var mooltiselect = new Class({
 						$(el).getFirst('input').destroy();
 					}else{
 						var selItems = $(this).getParent().getChildren('.' + $(el).getProperty('sel')).length;
-						if(selItems < $(el).getProperty('max') && $(el).getProperty('max') != 0){
+						if(selItems < $(el).getProperty('max') || $(el).getProperty('max') == 0){
 							$(el).addClass($(el).getProperty('sel'));
 							$(el).adopt(new Element('input', {
 								'name': $(el).getProperty('name'),
@@ -98,13 +101,14 @@ var mooltiselect = new Class({
 				$(el).setProperty('name', name);
 				$(el).setProperty('sel', selected);
 				$(el).setProperty('max', maximum);					
-				$(el).addEvent('click', function(){
+				$(el).addEvent('mousedown', function(){
+					dragging = true;
 					if($(el).hasClass($(el).getProperty('sel'))){
 						$(el).removeClass($(el).getProperty('sel'));
 						$(el).getFirst('input').destroy();
 					}else{
 						var selItems = $(this).getParent().getChildren('.' + $(el).getProperty('sel')).length;
-						if(selItems < $(el).getProperty('max') && $(el).getProperty('max') != 0){						
+						if(selItems < $(el).getProperty('max') || $(el).getProperty('max') == 0){						
 							$(el).addClass($(el).getProperty('sel'));
 							$(el).adopt(new Element('input', {
 								'name': $(el).getProperty('name'),
@@ -112,11 +116,37 @@ var mooltiselect = new Class({
 								'value': $(el).getProperty('rel'),
 								'type': 'hidden'
 								}));
+						}else{
+							alert(errorMessage);
+						}
+					}
+					});
+
+				$(el).addEvent('mouseup', function(){
+					dragging = false;
+				});
+
+				$(el).addEvent('mouseover', function(){
+					if(dragging && drag){
+						if($(el).hasClass($(el).getProperty('sel'))){
+							$(el).removeClass($(el).getProperty('sel'));
+							$(el).getFirst('input').destroy();
+						}else{
+							var selItems = $(this).getParent().getChildren('.' + $(el).getProperty('sel')).length;
+							if(selItems < $(el).getProperty('max') || $(el).getProperty('max') == 0){						
+								$(el).addClass($(el).getProperty('sel'));
+								$(el).adopt(new Element('input', {
+									'name': $(el).getProperty('name'),
+									'id': $(el).getProperty('name'),
+									'value': $(el).getProperty('rel'),
+									'type': 'hidden'
+									}));
 							}else{
 								alert(errorMessage);
 							}
-						}
-					});
+						}					
+					}
+				});				
 			});
 		}
 	}

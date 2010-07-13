@@ -24,10 +24,16 @@
 					sort: true,
 					list: 'liList',
 					options: 'ulOption'
+				});
+				var list4 = new mooltiselect({
+					drag: true,
+					list: 'liList2',
+					options: 'ulOption'
 				});				
 				list1.apply();
 				list2.apply();
 				list3.apply();
+				list4.apply();
 			});
 			
 		</script>
@@ -57,6 +63,13 @@
 				<li class="ulOption" rel="4">ul 4</li>
 				<li class="ulOption" rel="5">ul 5</li>
 			</ul>
+			<ul id="liList2" class="list">
+				<li class="ulOption" rel="1">ul 1</li>
+				<li class="ulOption" rel="2">ul 2</li>
+				<li class="ulOption" rel="3">ul 3</li>
+				<li class="ulOption" rel="4">ul 4</li>
+				<li class="ulOption" rel="5">ul 5</li>
+			</ul>			
 		</div>	
 	</body>
 </html>
