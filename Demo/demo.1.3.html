@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<link href="./css/style.css" type="text/css" rel="stylesheet" />		
+		<script type="text/javascript" src="./js/mootools-1.3.js"></script>
+		<script type="text/javascript" src="./js/mootools-1.3.more.js"></script>
+		<script type="text/javascript" src="../Source/mooltiselect.js"></script>
+		<script type="text/javascript">
+			
+			window.addEvent('domready', function(){
+				new mooltiselect({maximum: 1});
+				new mooltiselect({list: 'list2',
+					selectedClass: 'selectedRed',
+					name: 'listBox2',
+					sort: true,
+					maximum: 2,
+					errorMessage: 'max %MAX%'
+				});
+				new mooltiselect({
+					maximum: 3,
+					sort: true,
+					list: 'liList',
+					options: 'ulOption'
+				});
+				new mooltiselect({
+					drag: true,
+					list: 'liList2',
+					options: 'ulOption'
+				});				
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div id="list" class="list">
+				<div class="heading">This is not Selectable</div>
+				<div class="option" rel="1">Option 1</div>
+				<div class="option" rel="2">Option 2</div>
+				<div class="option" rel="3">Option 3</div>
+				<div class="option" rel="4">Option 4</div>
+				<div class="option" rel="5">Option 5</div>
+			</div>
+			<div id="list2" class="list">
+				<div class="heading">This is not Selectable nor Sortable</div>
+				<div class="option" rel="1">Option 1</div>
+				<div class="option" rel="2">Option 2</div>
+				<div class="option" rel="3">Option 3</div>
+				<div class="option" rel="4">Option 4</div>
+				<div class="option" rel="5">Option 5</div>
+			</div>
+			<ul id="liList" class="list">
+				<li class="ulOption" rel="1">ul 1</li>
+				<li class="ulOption" rel="2">ul 2</li>
+				<li class="ulOption" rel="3">ul 3</li>
+				<li class="ulOption" rel="4">ul 4</li>
+				<li class="ulOption" rel="5">ul 5</li>
+			</ul>
+			<ul id="liList2" class="list">
+				<li class="ulOption" rel="1">ul 1</li>
+				<li class="ulOption" rel="2">ul 2</li>
+				<li class="ulOption" rel="3">ul 3</li>
+				<li class="ulOption" rel="4">ul 4</li>
+				<li class="ulOption" rel="5">ul 5</li>
+			</ul>			
+			<pre id="log">
+			
+			</pre>
+		</div>	
+	</body>
+</html>

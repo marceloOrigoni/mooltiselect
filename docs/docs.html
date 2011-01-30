@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<link href="../demo/css/style.css" type="text/css" rel="stylesheet" />		
+	</head>
+	<body>
+		<div class="wrapper">
+<h3>How to use it?</h3>
+						<p>
+							You'll need a few thing to use it. First of all the <a href="http://mootools.net/download" alt="Download MooTools 1.2.4">mootools Core library</a> and the <a href="http://mootools.net/more" alt="MooTools More 1.2.4.4 Builder">Fx.Sort</a> part of the moootools More Library.
+							both files are included in the download, along with the mooltiSelect file.<br />
+							you need to include the 3 files in betweend the &lt;head&gt; and &lt;/head&gt; of your html code. and don't forget the style sheet.<br />
+							then jsut add to your domready event, the call to mooltiSelect, something like:
+						</p>						
+						<pre>
+	window.addEvent('domready', function(){
+		new mooltiselect();
+						</pre>
+						<h3>Which Properties you can pass to mooltiSelect, and which are the default values?</h3>
+						<span>This are the available options:</span>
+						<pre>
+	list: 'list',
+	options: 'option',
+	selectedClass: 'selected',
+	name: 'listBox',
+	sort: false,
+	drag: true,
+	maximum: 0,
+	errorMessage: 'You already selected the maximum of %MAX% items'	
+						</pre>
+						<p>
+							<b>list</b>, is the id of the container element, default value is list.<br />
+							<b>options</b>, is the class of the elements you want to convert to a multiselect, defaults to option.<br />
+							<b>selectedClass</b>, is the class mooltiSelect gives to the selected items, so the user can know which options (s)he selected, default selected.<br />
+							<b>name</b>, is the name that will assign to the input elements, that will be send in the form, defaults to listBox.<br />
+							<b>sort</b>, it's a boolean, and enables/disables the ability to sort the options, defaults to false.<br />
+							<b>drag</b>, it's a boolean, enables/disables the multiple selection by dragging the mouse, defaults to true.<br />
+							<b>maximum</b>, it's the limit of options the user can select, 0 means no limit and it's also de default value.
+							<b>errorMessage</b> The error message displayed when the maximum options are selected, it accept a %MAX% wildcard, that will be replaced with the number of options. defaults to 'You already selected the maximum of %MAX% items'
+						</p>
+						<h3>is there any special markup I need to know?</h3>
+						<p>
+							Yes there is, it's not a big thing, bur you need to place a rel attribute in your option elements, that's where mooltiSelect gets the value for each option.
+						</p>
+						<h3>Why if I select sortables, the options are not selected?</h3>
+						<p>
+							In oreder to select any option, while sortable enable, you need to doubleclick, sin the click event, is associated with the sorting.
+						</p>
+						<p>
+							If you need any help, <a href="mailto:marcelo@origoni.com.ar">Contact me</a>
+						</p>
+		</div>	
+	</body>
+</html>

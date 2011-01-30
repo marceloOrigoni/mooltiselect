@@ -27,12 +27,11 @@ How to use
 			maximum: 0,	// int, maximum selectable options, 0 means no limit.	
 			errorMessage: 'You already selected the maximum of %MAX% items', // Error message displayed if max options already selected, the %MAX% wilcard, will be replaced with the number 
 			});
-	
-	3. Apply the change.
-		#JS
-		list.apply();
 
 Changelog
 ---------
-	1.3 - Added selection by dragging the mouse over various options
-	1.2 Added custom error message alert
+	1.5 - Made mooltiSelect compatible with mootools 1.3;
+	1.5 - Made text unselectable when dragging enable (tested on IE7,IE8, FF3,FF2, Opera 11, Safari 5 and Chrome 2);
+	1.5 - Removed the extra step apply();
+	1.3 - Added selection by dragging the mouse over various options;
+	1.2 - Added custom error message alert;
