@@ -71,7 +71,7 @@ var mooltiselect = new Class({
 						if(selItems < $(el).getProperty('max') || $(el).getProperty('max') == 0){
 							$(el).addClass($(el).getProperty('sel'));
 							$(el).adopt(new Element('input', {
-								'name': $(el).getProperty('name'),
+								'name': $(el).getProperty('name')+'[]',
 								'id': $(el).getProperty('name'),
 								'value': $(el).getProperty('rel'),
 								'type': 'hidden'
@@ -105,7 +105,7 @@ var mooltiselect = new Class({
 						if(selItems < $(el).getProperty('max') || $(el).getProperty('max') == 0){						
 							$(el).addClass($(el).getProperty('sel'));
 							$(el).adopt(new Element('input', {
-								'name': $(el).getProperty('name'),
+								'name': $(el).getProperty('name')+'[]',
 								'id': $(el).getProperty('name'),
 								'value': $(el).getProperty('rel'),
 								'type': 'hidden'
@@ -137,7 +137,7 @@ var mooltiselect = new Class({
 							if(selItems < $(el).getProperty('max') || $(el).getProperty('max') == 0){						
 								$(el).addClass($(el).getProperty('sel'));
 								$(el).adopt(new Element('input', {
-									'name': $(el).getProperty('name'),
+									'name': $(el).getProperty('name')+'[]',
 									'id': $(el).getProperty('name'),
 									'value': $(el).getProperty('rel'),
 									'type': 'hidden'
