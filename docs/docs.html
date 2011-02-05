@@ -26,7 +26,8 @@
 	sort: false,
 	drag: true,
 	maximum: 0,
-	errorMessage: 'You already selected the maximum of %MAX% items'	
+	errorMessage: 'You already selected the maximum of %MAX% items'	,
+	onMaxSelected: ''
 						</pre>
 						<p>
 							<b>list</b>, is the id of the container element, default value is list.<br />
@@ -37,6 +38,7 @@
 							<b>drag</b>, it's a boolean, enables/disables the multiple selection by dragging the mouse, defaults to true.<br />
 							<b>maximum</b>, it's the limit of options the user can select, 0 means no limit and it's also de default value.
 							<b>errorMessage</b> The error message displayed when the maximum options are selected, it accept a %MAX% wildcard, that will be replaced with the number of options. defaults to 'You already selected the maximum of %MAX% items'
+							<b>onMaxSelected</b> Function to be executed once the maximum number of options is selected, if no function is passed, the default behaivour is to alert the error message. Defaults to ''
 						</p>
 						<h3>is there any special markup I need to know?</h3>
 						<p>

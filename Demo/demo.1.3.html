@@ -8,7 +8,8 @@
 		<script type="text/javascript">
 			
 			window.addEvent('domready', function(){
-				new mooltiselect({maximum: 1});
+				new mooltiselect({maximum: 1,
+					onMaxSelected: function(){$('divError').setProperty('text','You can only Select 1 options from this list!');}});
 				new mooltiselect({list: 'list2',
 					selectedClass: 'selectedRed',
 					name: 'listBox2',
@@ -40,6 +41,7 @@
 				<div class="option" rel="3">Option 3</div>
 				<div class="option" rel="4">Option 4</div>
 				<div class="option" rel="5">Option 5</div>
+				<div class="error" id="divError"></div>
 			</div>
 			<div id="list2" class="list">
 				<div class="heading">This is not Selectable nor Sortable</div>

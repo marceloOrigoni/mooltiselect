@@ -31,10 +31,11 @@ var mooltiselect = new Class({
 		sort: false,
 		drag: true,
 		maximum: 0,
-		errorMessage: 'You already selected the maximum of %MAX% items'		
+		errorMessage: 'You already selected the maximum of %MAX% items',
+		onMaxSelected: ''
 	},
 	initialize: function(properties) {
-		
+		var now = new Date();
 		if(MooTools.version >= '1.3'){
 			options = Object.merge(this.options, properties);
 		}else{
@@ -42,13 +43,21 @@ var mooltiselect = new Class({
 		}		
 		options.options = '.' + options.options;
 		options.errorMessage = options.errorMessage.replace("%MAX%", options.maximum);
-		
+		var placeholder = new Element('div',{id:'placeholder-'+now.valueOf()});
+		$(placeholder).setStyle('display','none');
+		if (typeof options.onMaxSelected == 'function'){
+			$(placeholder).addEvent('click', options.onMaxSelected);
+		}else{
+			$(placeholder).addEvent('click', function(){alert($(this).getParent().getProperty('message'));});
+		}
+		$(options.list).setProperty('max', options.maximum);
+		$(options.list).setProperty('message', options.errorMessage);
+		$(options.list).setProperty('placeholder', 'placeholder-'+now.valueOf());
+		$(options.list).grab($(placeholder));
 		if(options.sort){
 			var sortList = new Element('div', {
 				id: 'sortList'
 				});
-			$(options.list).setProperty('max', options.maximum);
-			$(options.list).setProperty('message', options.errorMessage);
 			$(options.list).getElements(options.options).each(function(el,i){
 				$(el).setProperty('name', options.name);
 				$(el).setProperty('sel', options.selectedClass);
@@ -68,7 +77,7 @@ var mooltiselect = new Class({
 								'type': 'hidden'
 								}));
 							}else{
-								alert($(this).getParent().getParent().getProperty('message'));
+								$($(this).getParent().getParent().getProperty('placeholder')).fireEvent('click');
 							}
 						}
 					});
@@ -80,8 +89,7 @@ var mooltiselect = new Class({
 				clone: true
 			});					
 		}else{
-			$(options.list).setProperty('max', options.maximum);
-			$(options.list).setProperty('message', options.errorMessage);
+
 			$(options.list).getElements(options.options).each(function(el,i){
 				$(el).setProperty('name', options.name);
 				$(el).setProperty('sel', options.selectedClass);
@@ -103,7 +111,7 @@ var mooltiselect = new Class({
 								'type': 'hidden'
 								}));
 						}else{
-							alert($(this).getParent().getProperty('message'));
+							$($(this).getParent().getProperty('placeholder')).fireEvent('click');
 						}
 					}
 				});
@@ -135,7 +143,7 @@ var mooltiselect = new Class({
 									'type': 'hidden'
 									}));
 							}else{
-								alert(options.errorMessage);
+								$($(this).getParent().getProperty('placeholder')).fireEvent('click');
 							}
 						}
 					}

@@ -26,10 +26,12 @@ How to use
 			drag: true, // boolean, defaults to true, allows multiple selection, by dragging the mouse over, and maintaining the mosue clicked.
 			maximum: 0,	// int, maximum selectable options, 0 means no limit.	
 			errorMessage: 'You already selected the maximum of %MAX% items', // Error message displayed if max options already selected, the %MAX% wilcard, will be replaced with the number 
+			onMaxSelected: '' // Function to be executed once the maximum number of options is selected, if no function is passed, the default behaivour is to alert the erroe message
 			});
 
 Changelog
 ---------
+	2.0 - Added onMaxSelected property
 	1.5 - Made mooltiSelect compatible with mootools 1.3;
 	1.5 - Made text unselectable when dragging enable (tested on IE7,IE8, FF3,FF2, Opera 11, Safari 5 and Chrome 2);
 	1.5 - Removed the extra step apply();
