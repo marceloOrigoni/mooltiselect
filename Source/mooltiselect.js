@@ -127,7 +127,7 @@ var mooltiselect = new Class({
 				});
 
 				$(el).addEvent('mouseover', function(){
-					if(dragging && $(el).getProperty('drag')){
+					if(dragging && $(el).getProperty('drag') == 'true'){
 						dragging = true;
 						if($(el).hasClass($(el).getProperty('sel'))){
 							$(el).removeClass($(el).getProperty('sel'));
